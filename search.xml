@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>百度ueditor获取内容失败</title>
+      <link href="/2017/07/10/baidu-ueditor/"/>
+      <url>/2017/07/10/baidu-ueditor/</url>
+      
+        <content type="html"><![CDATA[<p>最近学习laravel做个人博客的项目，在添加文章的时候使用了百度出品的所见即所得的编辑器，发现在提交的时候获取不到内容，我首先检查的有没有写form表单，但是有一部分分数据已经得到了，所以排除没有写form的原因</p><p>下面这是html显示百度ueditor的地方代码</p><pre><code>&lt;script id=&quot;editor&quot; name=&quot;art_content&quot; type=&quot;text/plain&quot; style=&quot;width:1024px;height:500px;&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;{{asset('resources/org/ueditor/ueditor.config.js')}}&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;{{asset('resources/org/ueditor/ueditor.all.min.js')}}&quot;&gt; &lt;/script&gt;&lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;{{asset('resources/org/ueditor/lang/zh-cn/zh-cn.js')}}&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot;&gt;    var ue = UE.getEditor(&#39;editor&#39;);&lt;/script&gt;</code></pre><p>表单提交代码：</p><pre><code>&lt;table width=&quot;100%&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;&lt;form name=&quot;form1&quot; method=&quot;POST&quot; action=&quot;{{url('admin/article')}}&quot;&gt;</code></pre><p>打印表单提交数据的代码：</p><pre><code>public function store(){    $input = Input::all();    dd($input);}</code></pre><p>我刷新和重复提交了好几次都没有获取到。到这里我大概停止了我这个项目一天的时间，当然啦，主要是因为白天要上班所以没时间看，当我仔细看的时候发现这没毛病啊，数据提交就是这么写啊。这时我就无语了，我想有可能是表单form的原因，所以我重新写了一下，发现还是不行，又修改了一下百度编辑器的id和name发现还是不行，此刻我已经相当无语了。</p><p>在我捣鼓了好多次之后，我不知怎么的把form这一段代码给他提到table前面(当时是鼠标没控制好给拖到上面一行去了，我一刷新有了，这就奇怪了，我一看我代码的结尾的部分得form都还没写对位置这就好了，难道非要这么写。)所以我就把结尾也给提到table外发现还是好了，这样我貌似看到了希望，所以我试了几下把form放到table的里面，发现就是这个问题，只要放到里面就不行了，所以这个情况还是有点奇怪的。以下是我的代码修改：</p><pre><code>&lt;form name=&quot;form1&quot; method=&quot;POST&quot; action=&quot;{{url('admin/article')}}&quot;&gt;   &lt;table width=&quot;100%&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;</code></pre><p>结果就打印出来了。所以提醒大家，遇到错误可以多试几下，我相信这个bug我会很难忘了，困扰了我一天的时间啊。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ueditor </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>移动端开发的简单适配方案</title>
+      <link href="/2017/07/07/mobile-develop/"/>
+      <url>/2017/07/07/mobile-develop/</url>
+      
+        <content type="html"><![CDATA[<p>现在是移动端的天下啊，但是在做移动端开发的时候会遇到很多坑，适配是必须要做的，这里总结一下自己平时写移动端页面的两种简单处理办法，希望能够帮到大家：</p><h2 id="利用js来计算不同设备中的文字大小"><a href="#利用js来计算不同设备中的文字大小" class="headerlink" title="利用js来计算不同设备中的文字大小"></a>利用js来计算不同设备中的文字大小</h2><p>这种方法是网易的做法，如果采用该方法需要将视口设置为一下才可以</p><pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1,maximum-scale=1, minimum-scale=1&quot;&gt;</code></pre><p>下面的代码中的6.4是基于iphone的宽度为640的设计稿，如果是750的修改为7.5即可，当设备宽度大于640后则物理分辨率大于1280，这时就应该去访问pc站点了。这时设计稿中的宽度除以100即为rem的宽度，如设计稿为20则rem为.02rem</p><pre><code>var deviceWidth = document.documentElement.clientWidth;  if(deviceWidth &gt; 640) deviceWidth = 640;  document.documentElement.style.fontSize = deviceWidth / 6.4 + &#39;px&#39;;</code></pre><h2 id="利用媒体查询来设置"><a href="#利用媒体查询来设置" class="headerlink" title="利用媒体查询来设置"></a>利用媒体查询来设置</h2><p>这种方式和上面的差不多，只不过是将fontsize设死了，同样需要添加视口设置。</p><pre><code>html {    font-size: 100px;}  @media screen and (min-width: 320px) {    html {      font-size: 50px;    }  }  @media screen and (min-width: 360px) {    html {      font-size: 56.25px;    }  }  @media screen and (min-width: 375px) {    html {      font-size: 58.59375px;    }  }  @media screen and (min-width: 400px) {    html {      font-size: 62.5px;    }  }  @media screen and (min-width: 414px) {    html {      font-size: 64.6875px;    }  }  @media screen and (min-width: 440px) {    html {      font-size: 68.75px;    }  }  @media screen and (min-width: 480px) {    html {      font-size: 75px;    }  }  @media screen and (min-width: 520px) {    html {      font-size: 81.25px;    }  }  @media screen and (min-width: 560px) {    html {      font-size: 87.5px;    }  }  @media screen and (min-width: 600px) {    html {      font-size: 93.75px;    }  }  @media screen and (min-width: 640px) {    html {      font-size: 100px;    }  }  @media screen and (min-width: 680px) {    html {      font-size: 106.25px;    }  }  @media screen and (min-width: 720px) {    html {      font-size: 112.5px;    }  }  @media screen and (min-width: 760px) {    html {      font-size: 118.75px;    }  }  @media screen and (min-width: 800px) {    html {      font-size: 125px;    }  }  @media screen and (min-width: 960px) {    html {      font-size: 150px;    }  }</code></pre><p>其实这两种办法只是简单的处理，如果要更好的处理，大家可以参考各大网站的方式，如：淘宝，网易等。这是文字的适配，在正常些样式的时候设计稿的真是尺寸一半即为我们需要用到的尺寸。这只是说了文字的适配，移动端的适配要想做到更好，最为重要的就是图片的适配，这里就不多说，大家有兴趣可以自行google。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 移动开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 移动开发 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vue项目上线前打包</title>
+      <link href="/2017/07/01/vue-build/"/>
+      <url>/2017/07/01/vue-build/</url>
+      
+        <content type="html"><![CDATA[<p>最近一直坚持每个月写一个小的vue.js 开发的项目，最后开发完成后想到很久之前给别人回答的一个问题：vue的项目如何上线，当时有千奇百怪的回答，我在想，这些人都是肿了么，vue的官方都说了，这个框架只是做了view这一层，所以并不是把这些开发完的东西直接拷贝到服务器上，而且需要打包为静态文件上传服务器的。这里我简单的列出这个过程：</p><h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>首先需要修改一下配置文件再打包，很多人都是遇到过打包后运行一片空白等等问题，这些问题主要就是路径的问题，所以需要修改config下面的index.js这个配置文件里选项：</p><pre><code>assetsPublicPath: &#39;./&#39;, // 上图中第一个要修改的就是静态文件的路径，打包后静态文件就在当前目录下，所以修改为./productionSourceMap: false, // 环境设置为生产环境</code></pre><h2 id="运行打包命令"><a href="#运行打包命令" class="headerlink" title="运行打包命令"></a>运行打包命令</h2><p>运行下面的命令，运行成功后会有提示打包后的文件需要放到服务器才能打开，不能直接使用浏览器打开</p><pre><code>npm run build</code></pre><h2 id="上传代码"><a href="#上传代码" class="headerlink" title="上传代码"></a>上传代码</h2><p>将打包后的所有文件上传到服务器就可以正常访问了，如果vue项目中使用proxytable来解决跨域的问题，那么这里打包后的文件是访问不了数据的，必须要自己重新自己搭建一个服务来转发请求才能访问数据</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vue.js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>visual studio code的使用</title>
+      <link href="/2016/08/21/use-vscode/"/>
+      <url>/2016/08/21/use-vscode/</url>
+      
+        <content type="html"><![CDATA[<p>微软目前的开放程度也是很高了，大力的开源了，所以今天就来介绍一款来自微软出品的跨平台轻量级的代码编辑器(不是IDE，简称vscode)。官网的介绍Code editing.Redefined.Free. Open source. Runs everywhere.(重新定义代码编辑，免费，开放源码，运行于任何平台。)。此外该款编辑器还集成了一些常用的插件，详细见下面的介绍。</p><h2 id="首先介绍一下IDE和编辑器的区别："><a href="#首先介绍一下IDE和编辑器的区别：" class="headerlink" title="首先介绍一下IDE和编辑器的区别："></a>首先介绍一下IDE和编辑器的区别：</h2><h3 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h3><ul><li>都可以用来编写各种语言的代码，大部分也都支持一些插件或者扩展<h3 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h3></li><li>编辑器的功能相对来说比较弱，所以占用空间或者内存就小，大部分以文件夹为工作基本单元</li><li>IDE相对来说比编辑器功能要强，比如同是微软出品的visual studio功能相当强大，但是占用空间或者内存，以项目为基本单元</li><li>对于基本单元简单点说就是编辑器一次只能打开一个文件夹下的文件，不同同时打开两个不同文件夹，IDE则相反，能同时打开多个文件夹下的文件</li></ul><h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><p>关于下载大家可以自行搜索，也可以到官网去下载，下载时大家注意要结合自己的平台来下载相应的版本。这里以windows为例讲解。</p><p>安装其实很简单就是windows软件的常规安装即可。</p><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>从官网下载并安装的基本上安装好后菜单都是中文的了，首先介绍几个基本的配置。</p><h3 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h3><p>在菜单栏上依次选择文件、首选项、颜色主题，这时会弹出一个选择的列表，可以利用上下键来选择对应的主题可以实时预览，初次安装可能就只有几个内置的主题，想要安装其他的主题首先需要去<a href="https://marketplace.visualstudio.com/search?target=VSCode&category=Themes&sortBy=Downloads" target="_blank" rel="noopener">官网主题库</a>，寻找自己想要的主题介绍页面有安装的步骤(就是installation下面的代码复制，然后快捷键(Ctrl+P),将复制的代码粘贴并按enter即可)，或者复制主题的名称到编辑器的左边栏点击最后一个扩展图标搜索并安装。</p><h3 id="编辑器常规配置"><a href="#编辑器常规配置" class="headerlink" title="编辑器常规配置"></a>编辑器常规配置</h3><p>vscode的配置都是以json格式来配置的，首先在菜单栏上依次选择文件、首选项、设置就会弹出配置的两个文件，一个是默认的配置文件(不允许修改)，另一个是用户自定义的配置文件，左边有很多设置下，每个设置项都是分类展示的，比如常用设置、编辑器等等，还包括一些扩展的设置都是在这里进行配置的，右边则是用户自定义的配置了，这里要特别说明的是所有的这些配置都是以json格式来处理的，所以在修改的时候需要严格按照json格式来书写才可以，其实也很简单就是加上双引号就可以了。这里的配置都是大同小异的，可能最主要是的英文的不知道是配置什么的，这里介绍几个重要的配置项，其他的大家可以自己尝试。</p><pre><code>{    // 这个是编辑器的文件字体大小    &quot;editor.fontSize&quot;: 20,    // 控制文字换行，on表示在可视区换行，以前的版本是设置editor.wordWrapColumn的值为0    &quot;editor.wordWrap&quot;: &quot;on&quot;,    // 光标的显示动画样式    &quot;editor.cursorBlinking&quot;: &quot;expand&quot;}</code></pre><h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>vscode自带有一些扩展，官方也有很多开发者提供的各种扩展，大家可以根据自己的需要去下载相应的扩展。去下载扩展</p><h3 id="扩展安装"><a href="#扩展安装" class="headerlink" title="扩展安装"></a>扩展安装</h3><ul><li>vscode安装扩展比sublime要简单多了，只要知道扩展名称直接在扩展面板中搜索安装即可，操作起来还是非常方便的，如果不知道扩展名称的话，编辑器还提供了几个快捷的选项：显示推荐的扩展，显示常用的扩展，这里可以看到自己安装了那些扩展以及对扩展的卸载等等功能。</li><li>还有一种安装方法就是在扩展的官网复制命令来安装，在上面介绍的扩展官网中找到自己想要的扩展复制命令，然后在编辑器中快捷键Ctrl+P来粘贴enter的方式来安装即可(目前我的编辑器中方式不行，提示没有匹配的命令)，需要粘贴到第一种方法的搜索框中才可以。<h3 id="扩展使用"><a href="#扩展使用" class="headerlink" title="扩展使用"></a>扩展使用</h3>安装扩展之后就是使用了，每个扩展的使用方法不一样(具体可以查看相应插件的说明文档)，但思路是一样的，这里以emmet为例，配置好emmet后又快捷键的方式，需要扩展代码就是用tab键即可，这里介绍几个不常用到的方法。<blockquote><p>场景，有很多文字需要使用a标签来包裹，这时我们可以使用emmet的wrapp with abbreviation来扩展代码，将文字竖着排列好后选中使用Ctrl+Shift+P呼出命令窗口输入wrap选择wrapp with abbreviation，然后输入ul&gt;li*&gt;a即可完成。</p></blockquote></li></ul><p>有很多扩展的使用都是通过命令来配合使用的，所以大家要记得经常使用Ctrl+Shift+P快捷键，就能使用很多扩展的功能了。</p><h3 id="扩展推荐"><a href="#扩展推荐" class="headerlink" title="扩展推荐"></a>扩展推荐</h3><h4 id="emmet"><a href="#emmet" class="headerlink" title="emmet"></a>emmet</h4><p>作为前端开发人员来说应该是特别熟悉这个插件了，它的前生就是zencoding，它可以快速的帮助开发者构建用户界面，所以作为前端开发人员来说这是必不可少的插件，好在vscode好像已经内置了这个插件，如果没有内置大家也可以自行安装emmet这个插件</p><h4 id="AutoFileName"><a href="#AutoFileName" class="headerlink" title="AutoFileName"></a>AutoFileName</h4><p>这个插件能够帮助开发者输入资源路径，有时可能不记得图片的目录是images还是imgs时可以使用这个插件来自动补齐文件路径，类似自动补齐的还有Auto Close Tag(自动完成关闭标签)、Auto Rename Tag(自动完成重命名标签)</p><h4 id="View-In-Browser"><a href="#View-In-Browser" class="headerlink" title="View In Browser"></a>View In Browser</h4><p>在左侧的文件的右键菜单上会多出一个view in browser的菜单能够快速的在浏览器中浏览该文件</p><h4 id="各种语言的snippets"><a href="#各种语言的snippets" class="headerlink" title="各种语言的snippets"></a>各种语言的snippets</h4><p>还可以安装各种语言的代码片段来帮助开发者提示输入，也可以自定义代码片段，文件、首选项、用户代码片段，里面有例子大家可以根据自己的需要来定义自己的代码片段。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 开发工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Visual Studio Code </tag>
+            
+            <tag> vscode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>

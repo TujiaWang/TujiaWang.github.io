@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>土家肸哥</title>
+  
+  <subtitle>土家肸哥</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://tujiawang.github.io/"/>
+  <updated>2019-06-17T16:56:37.510Z</updated>
+  <id>https://tujiawang.github.io/</id>
+  
+  <author>
+    <name>土家肸哥</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>百度ueditor获取内容失败</title>
+    <link href="https://tujiawang.github.io/2017/07/10/baidu-ueditor/"/>
+    <id>https://tujiawang.github.io/2017/07/10/baidu-ueditor/</id>
+    <published>2017-07-10T14:25:00.000Z</published>
+    <updated>2019-06-17T16:56:37.510Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近学习laravel做个人博客的项目，在添加文章的时候使用了百度出品的所见即所得的编辑器，发现在提交的时候获取不到内容，我首先检查的有没有写form表单，但是有一部分分数据已经得到了，所以排除没有写form的原因&lt;/p&gt;
+&lt;p&gt;下面这是html显示百度ueditor的地方
+        
+      
+    
+    </summary>
+    
+      <category term="Web开发" scheme="https://tujiawang.github.io/categories/Web%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="ueditor" scheme="https://tujiawang.github.io/tags/ueditor/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>移动端开发的简单适配方案</title>
+    <link href="https://tujiawang.github.io/2017/07/07/mobile-develop/"/>
+    <id>https://tujiawang.github.io/2017/07/07/mobile-develop/</id>
+    <published>2017-07-07T01:25:00.000Z</published>
+    <updated>2019-06-17T16:57:00.129Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;现在是移动端的天下啊，但是在做移动端开发的时候会遇到很多坑，适配是必须要做的，这里总结一下自己平时写移动端页面的两种简单处理办法，希望能够帮到大家：&lt;/p&gt;
+&lt;h2 id=&quot;利用js来计算不同设备中的文字大小&quot;&gt;&lt;a href=&quot;#利用js来计算不同设备中的文字大小&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="移动开发" scheme="https://tujiawang.github.io/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="移动开发" scheme="https://tujiawang.github.io/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue项目上线前打包</title>
+    <link href="https://tujiawang.github.io/2017/07/01/vue-build/"/>
+    <id>https://tujiawang.github.io/2017/07/01/vue-build/</id>
+    <published>2017-07-01T12:25:00.000Z</published>
+    <updated>2019-06-17T16:56:51.690Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近一直坚持每个月写一个小的vue.js
+        
+      
+    
+    </summary>
+    
+      <category term="Vue" scheme="https://tujiawang.github.io/categories/Vue/"/>
+    
+    
+      <category term="Vue.js" scheme="https://tujiawang.github.io/tags/Vue-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>visual studio code的使用</title>
+    <link href="https://tujiawang.github.io/2016/08/21/use-vscode/"/>
+    <id>https://tujiawang.github.io/2016/08/21/use-vscode/</id>
+    <published>2016-08-21T13:25:00.000Z</published>
+    <updated>2019-06-17T16:56:42.861Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;微软目前的开放程度也是很高了，大力的开源了，所以今天就来介绍一款来自微软出品的跨平台轻量级的代码编辑器(不是IDE，简称vscode)。官网的介绍Code editing.Redefined.Free. Open source. Runs
+        
+      
+    
+    </summary>
+    
+      <category term="开发工具" scheme="https://tujiawang.github.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Visual Studio Code" scheme="https://tujiawang.github.io/tags/Visual-Studio-Code/"/>
+    
+      <category term="vscode" scheme="https://tujiawang.github.io/tags/vscode/"/>
+    
+  </entry>
+  
+</feed>
