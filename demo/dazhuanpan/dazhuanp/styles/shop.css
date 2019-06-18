@@ -1,0 +1,132 @@
+body{
+    padding-bottom: 1.1rem;
+}
+.coin-tab{
+    margin-top: .1rem;
+}
+.tab-wrap{
+    background-color: #eee;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.tab-wrap a{
+    flex: 1;
+    text-align: center;
+    margin: .2rem 0;
+    font-size: .22rem;
+    color: #aaaeb3;
+    border-right: 1px solid #aaaeb3;
+}
+.tab-wrap a.on{
+    color: #f96150;
+    font-size: .24rem;
+}
+.tab-wrap a:last-child{
+    border: none;
+}
+.tab-content{
+    margin-top: .10rem;
+}
+.goods{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.item-list{
+    width: 49%;
+    margin-bottom: .10rem;
+    margin-right: 1%;
+}
+.item-list:nth-child(2n){
+    margin-right: 0;
+}
+.item-list div{
+    position: relative;
+  }
+  .item-list div img:first-child{
+    width: 100%;
+  }
+  .item-list div img:last-child{
+    width: .62rem;
+    height: .62rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .item-list h3{
+    color: #4c4c4c;
+    font-size: .24rem;
+    padding: .15rem .10rem .16rem .12rem;
+    background-color: #eeeeee;
+  }
+  .item-list p{
+    color: #aaaeb3;
+    font-size: .20rem;
+    padding: 0 .10rem .13rem .12rem;
+    background-color: #eeeeee;
+  }
+  .item-list p.coin-num{
+    color: #4c4c4c;
+    font-size: .26rem;
+    border-top: 1px solid #aaaeb3;
+    padding: .06rem 0;
+    background-color: #eeeeee;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .item-list p.coin-num img{
+    width: .35rem;
+    height: .35rem;
+    margin: 0 .08rem 0 .07rem;
+  }
+  .goods{
+    display: none;
+  }
+  .goods.on{
+    display: flex;
+  }
+  .goods .item-list .card-img{
+    width: 100%;
+  }
+.my-coin{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: .99rem;
+    line-height: .99rem;
+    border-top: 1px solid #aaaeb3;
+    border-bottom: 1px solid rgba(4, 0, 0, .2);
+    background-color: #fffeff;
+}
+.mycoin-wrap,.mycoin-wrap p{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: .28rem;
+    color: #4c4c4c;
+}
+.mycoin-wrap img{
+    width: .34rem;
+    height: .34rem;
+    margin-right: .08rem;
+}
+.mycoin-wrap p strong{
+    color: #f96150;
+}
+.mycoin-wrap a{
+    font-size: .226rem;
+    color: #aaaeb3;
+    border-radius: .1rem;
+    border: 1px solid #aaaeb3;
+    width: 1.5rem;
+    height: .5rem;
+    line-height: .5rem;
+    text-align: center;
+}

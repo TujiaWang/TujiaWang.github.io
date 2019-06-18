@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script>
+        var deviceWidth = document.documentElement.clientWidth;if(deviceWidth > 640) deviceWidth = 640;document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+    </script>
+    <title>购物活动</title>
+    <link rel="stylesheet" href="./styles/base.css">
+    <link rel="stylesheet" href="./styles/common.css">
+    <link rel="stylesheet" href="./styles/goldcoin.css">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<body>
+    
+    <div class="container">
+        <section class="coin-tab">
+            <div class="tab-wrap">
+                <a href="javascript:;" class="on">即将上线</a>
+                <a href="javascript:;">今日抽奖</a>
+                <a href="javascript:;">历史抽奖</a>
+            </div>
+        </section>
+    </div>
+    
+
+   
+    <div class="container">
+        <section class="coin-content">
+            <div class="online tab-content">
+                <img src="./images/huawei.png" alt class="product-img">
+                <h2>honor/荣耀V10全网通4G手机</h2>
+                <div class="coin-info">
+                    <div class="time">
+                        <img src="./images/time.png" alt>
+                        <p><span>距离抽奖开始</span><span>2天19:20:19</span></p>
+                    </div>
+                    <div class="price">
+                        <span>数量:50</span>
+                        <del>¥25.80</del>
+                    </div>
+                </div>
+                <div class="join-info">
+                    <p><span>0</span>人参加抽奖</p>
+                    <div>
+                        <img src="./images/coin-icon.png" alt>
+                        <strong><span>8</span>金币</strong>
+                        <p>等待开始</p>
+                    </div>
+                </div>
+            </div>
+            <div class="today-lottery tab-content">
+                <img src="./images/huawei.png" alt class="product-img">
+                <h2>honor/荣耀V10全网通4G手机</h2>
+                <div class="coin-info">
+                    <div class="time">
+                        <img src="./images/time.png" alt>
+                        <p><span>距离抽奖开始</span><span>2天19:20:19</span></p>
+                    </div>
+                    <div class="price">
+                        <span>数量:50</span><del>¥25.80</del>
+                    </div>
+                </div>
+                <div class="join-info">
+                    <p><span>125365</span>人参加抽奖</p>
+                    <div>
+                        <img src="./images/coin-icon.png" alt>
+                        <strong>8金币</strong>
+                        <p>参加抽奖</p>
+                    </div>
+                </div>
+            </div>
+            <div class="history-lottery tab-content">
+                <img src="./images/huawei.png" alt class="product-img">
+                <h2>honor/荣耀V10全网通4G手机</h2>
+                <div class="coin-info">
+                    <div class="time">
+                        <img src="./images/time.png" alt>
+                        <p><span>距离抽奖开始</span><span>2天19:20:19</span></p>
+                    </div>
+                    <div class="price">
+                        <span>数量:50</span>
+                        <del>¥25.80</del>
+                    </div>
+                </div>
+                <div class="join-info">
+                    <p><span>125365</span>人参加抽奖</p>
+                    <div>
+                        <img src="./images/coin-icon.png" alt>
+                        <strong>8金币</strong>
+                        <p>中奖名单</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <section class="my-coin">
+        <div class="container">
+            <div class="mycoin-wrap">
+                <p><img src="./images/coin-icon.png" alt><span>我的金币:</span><strong>50</strong></p>
+                <a href>抽奖规则</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="pop">
+        <h4>参与抽奖</h4>
+        <p>您当前拥有50金币，即将使用8金币抽奖</p>
+        <div><span class="cancel">取消</span><span class="confirm">确定</span></div>
+    </div>
+
+    <div class="mask">
+        <p>恭喜您参与成功</p>
+        <p>祝您中奖</p>
+    </div>
+    
+    <script src="./script/zepto.min.js"></script>
+    <script>
+        $('.tab-wrap a').click(function(){
+            $(this).addClass('on').siblings().removeClass('on');
+            $('.tab-content').eq($(this).index()).css('display','block').siblings().css('display','none');
+        });
+        $('.today-lottery .join-info div p').click(function(){
+            $('.pop').css('display','block');
+            $("body").on('touchmove',function(event) { event.preventDefault(); }, false);
+        });
+        $('.confirm').click(function(){
+            $('.pop').css('display','none');
+            $("body").unbind('touchmove');
+            $('.today-lottery .join-info div p').addClass('on').html('已参加');
+            $('.mask').css('display','block');
+            setTimeout(function(){
+                $('.mask').css('display','none');
+            },2000);
+        });
+        $('.cancel').click(function(){
+            $('.pop').css('display','none');
+            $("body").unbind('touchmove');
+        });
+    </script>
+</body>
+</html>

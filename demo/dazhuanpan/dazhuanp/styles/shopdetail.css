@@ -1,0 +1,96 @@
+body{
+    padding-bottom: 1.1rem;
+}
+.shop-detail{
+    margin-top: .1rem;
+}
+.shopimg{
+    width: 100%;
+}
+.shop-detail h3{
+    color: #4c4c4c;
+    font-size: .24rem;
+    padding: .17rem .13rem .27rem;
+    background-color: #eee;
+    border-bottom: 1px solid #aaaeb3;
+}
+.coins{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: .18rem .13rem;
+    background-color: #eee;
+}
+.coins p:first-child{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #4c4c4c;
+    font-size: .26rem;
+}
+.coins p:first-child img{
+    width: .35rem;
+    height: .35rem;
+    margin-right: .07rem;
+}
+.coins p:last-child{
+    color: #4c4c4c;
+}
+.coins p:last-child span{
+    color: #aaaeb3;
+}
+.tab-content{
+    margin-top: .2rem;
+    font-size: .22rem;
+}
+.tab-content p{
+    color: #4c4c4c;
+    margin-top: 0.1rem;
+}
+.tab-content li{
+    color: #aaaeb3;
+    line-height: .54rem;
+}
+.my-coin{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: .7rem;
+    border-top: 1px solid #aaaeb3;
+    background-color: #fffeff;
+    padding: .16rem 0;
+}
+.mycoin-wrap{
+    height: 100%;
+    margin: 0 .2rem;
+}
+.mycoin-wrap a{
+    height: 100%;
+    width: 100%;
+    font-size: .226rem;
+    color: #fff;
+    background-color: #f96150;
+    border-radius: .1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.phone{
+    background-color: #eee;
+    padding: 0 .18rem .17rem;
+  }
+  .phone input{
+    border: 1px solid #aaaeb3;
+    border-radius: .10rem;
+    padding: 0 .24rem;
+    font-size: .22rem;
+    color: #aaaeb3;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #eee;
+    height: .6rem;
+    line-height: .6rem;
+  }

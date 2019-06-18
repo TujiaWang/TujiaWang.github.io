@@ -1,0 +1,1 @@
+var serverLuckNum = 0;

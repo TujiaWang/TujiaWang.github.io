@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script>
+        var deviceWidth = document.documentElement.clientWidth;if(deviceWidth > 640) deviceWidth = 640;document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+    </script>
+    <title>购物活动</title>
+    <link rel="stylesheet" href="./styles/base.css">
+    <link rel="stylesheet" href="./styles/common.css">
+    <link rel="stylesheet" href="./styles/shop.css">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<body>
+    
+    <div class="container">
+        <section class="coin-tab">
+            <div class="tab-wrap">
+                <a href="javascript:;" class="on">商品兑换</a>
+                <a href="javascript:;">虚拟兑换</a>
+            </div>
+        </section>
+    </div>
+    
+
+   
+    <div class="container">
+        <section class="tab-content">
+            <div class="goods on">
+                <a class="item-list" href="./shopDetail.html">
+                    <div><img src="./images/huawei353.jpg" alt><img src="./images/free.png" alt></div>
+                    <h3>honor/荣耀V10全网通4G手机</h3>
+                    <p>（0人已兑换）</p>
+                    <p class="coin-num"><img src="./images/coin-icon.png"><strong>5888</strong><span>金币</span></p>
+                </a>
+                <a class="item-list" href="./shopDetail.html">
+                    <div><img src="./images/huawei353.jpg" alt><img src="./images/free.png" alt></div>
+                    <h3>honor/荣耀V10全网通4G手机</h3>
+                    <p>（0人已兑换）</p>
+                    <p class="coin-num"><img src="./images/coin-icon.png"><strong>5888</strong><span>金币</span></p>
+                </a>
+                <a class="item-list" href="./shopDetail.html">
+                    <div><img src="./images/huawei353.jpg" alt><img src="./images/free.png" alt></div>
+                    <h3>honor/荣耀V10全网通4G手机</h3>
+                    <p>（0人已兑换）</p>
+                    <p class="coin-num"><img src="./images/coin-icon.png"><strong>5888</strong><span>金币</span></p>
+                </a>
+            </div>
+            <div class="goods">
+                <a class="item-list" href="./shopPhone.html">
+                    <img src="./images/shop20.png" class="card-img">
+                    <h3>20话费充值卡</h3>
+                    <p>（0人已兑换）</p>
+                    <p class="coin-num"><img src="./images/coin-icon.png"><strong>5888</strong><span>金币</span></p>
+                </a>
+                <a class="item-list" href="./shopPhone.html">
+                    <img src="./images/shop30.png" class="card-img">
+                    <h3>20话费充值卡</h3>
+                    <p>（0人已兑换）</p>
+                    <p class="coin-num"><img src="./images/coin-icon.png"><strong>5888</strong><span>金币</span></p>
+                </a>
+                <a class="item-list" href="./shopPhone.html">
+                    <img src="./images/shop50.png" class="card-img">
+                    <h3>20话费充值卡</h3>
+                    <p>（0人已兑换）</p>
+                    <p class="coin-num"><img src="./images/coin-icon.png"><strong>5888</strong><span>金币</span></p>
+                </a>
+            </div>
+        </section>
+    </div>
+    
+    <section class="my-coin">
+        <div class="container">
+            <div class="mycoin-wrap">
+                <p><img src="./images/coin-icon.png" alt><span>我的金币:</span><strong>50</strong></p>
+                <a href>抽奖规则</a>
+            </div>
+        </div>
+    </section>
+    
+    <script src="./script/zepto.min.js"></script>
+    <script>
+        $('.tab-wrap a').click(function(){
+            $(this).addClass('on').siblings().removeClass('on');
+            $('.goods').eq($(this).index()).addClass('on').siblings().removeClass('on');
+        });
+        
+    </script>
+</body>
+</html>

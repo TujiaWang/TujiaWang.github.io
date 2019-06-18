@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script>
+        var deviceWidth = document.documentElement.clientWidth;
+        if (deviceWidth > 640) deviceWidth = 640;
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+    </script>
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body>
+    <div class="wrapper">
+        <section class="main-wrapper">
+            <img src="./images/bg.jpeg" class="bg-img">
+            <div class="barrages" id="box">
+                <div class="bar-sec1" id="box1">
+                    <span class="move-0">这签文简直扎心了</span>
+                    <span class="move-1">抽到5元红包的飘过</span>
+                    <span class="move-2">佛说，嘛哩嘛哩哄</span>
+                    <span class="move-3">听说还有红包拿</span>
+                    <span class="move-4">抽到5元红包的飘过</span>
+                    <span class="move-5">大吉大利，晚上吃鸡</span>
+                    <span class="move-6">一千次回眸换一纸签文</span>
+                    <span class="move-7">有缘千里来相会，无缘倒也省话费</span>
+                    <span class="move-8">大吉大利，晚上吃鸡</span>
+                    <span class="move-9">佛说，嘛哩嘛哩哄</span>
+                    <span class="move-10">这签文简直扎心了</span>
+                    <span class="move-11">听说还有红包拿</span>
+                    <span class="move-12">一千次回眸换一纸签文</span>
+                    <span class="move-13">有缘千里来相会，无缘倒也省话费</span>
+                </div>
+                <div class="bar-sec1" id="box2"></div>
+            </div>
+            <div class="tips">活动说明</div>
+            <div class="logo"></div>
+            <div class="draw-lots">
+                <audio id="audioShake" src="./images/audioShake.mp3"></audio>
+                <audio id="audioEnd" src="./images/audioEnd.mp3"></audio>
+                <img src="./images/qian2.png" class="qianshake shake" style="display:none">
+                <img src="./images/qian1.png" class="qian">
+                <div class="lots-btn"></div>
+                <div class="start"></div>
+            </div>
+        </section>
+        <section class="solution" style="display: none;">
+            <div class="layer">
+                <div class="main">
+                    <div class="text-sec"><span>哪怕失败了九十九次</span><span>也要努力凑个整</span></div>
+                    <div class="theme-text">越挫越勇</div>
+                    <div class="qrcode-sec">
+                        <img src="./images/qrcode.png" class="qrcode">
+                        <img src="./images/weidian.png" class="logo">
+                    </div>
+                    <div class="gift-sec">
+                        <div class="gift"><i></i>
+                            <p>收到一个幸运红包</p>
+                            <div class="gift-btn">立即打开</div>
+                        </div>
+                    </div>
+
+                    <div class="share-sec">
+                        <p class="share-text">长按保存分享</p>
+                    </div>
+                </div>
+                <div class="close"></div>
+            </div>
+        </section>
+        <section class="activity-tips" style="display: none;">
+            <div class="layer">
+                <div class="main">
+                    <div class="sec">
+                        <h4>活动说明：</h4>
+                        <p>1、活动时间：2017.12.29 10:00~2017.1.3 24:00
+                            <br>2、每位用户每天可抽取1条签文，签文内将随机出现红包
+                            <br>3、红包可用于微店买家版APP内购物时抵扣
+                            <br>4、本活动解释权归微店所有</p>
+                    </div>
+                    <div class="sec">
+                        <h4>红包说明：</h4>
+                        <p>1、使用条件：在微店买家版APP内下单支付时可用
+                            <br>2、单笔订单最多可用1张代金券，不与其他平台优惠同享，若发生退款优惠金额将收回
+                            <br>3、本活动解释权归微店所有</p>
+                    </div>
+                </div>
+                <div class="close"></div>
+            </div>
+        </section>
+        <div id="toast">
+            <p>活动已经结束</p>
+        </div>
+    </div>
+    <script src="http://mat1.gtimg.com/libs/zepto/1.1.6/zepto.js"></script>
+    <script>
+        var timer = null;
+        $('.start').click(function() {
+            startShake();
+        });
+        $('.lots-btn').click(function() {
+            startShake();
+        });
+        $('.tips').click(function() {
+            $('.activity-tips').css('display', 'block');
+        });
+        $('.activity-tips .close').click(function() {
+            $('.activity-tips').css('display', 'none');
+        });
+        $('.solution .close').click(function() {
+            $('.solution').css('display', 'none');
+        });
+
+        function startShake() {
+            clearTimeout(timer);
+            document.getElementById("audioShake").play();
+            $('.qianshake').css('display', 'block');
+            $('.qian').css('display', 'none');
+
+            timer = setTimeout(function() {
+                document.getElementById("audioEnd").play();
+                $('.solution').css('display', 'block');
+                $('.qianshake').css('display', 'none');
+                $('.qian').css('display', 'block');
+                showToast();
+            }, 4000);
+        }
+        var speed = 10; //数字越大速度越慢
+        var tab = document.getElementById("box");
+        var tab1 = document.getElementById("box1");
+        var tab2 = document.getElementById("box2");
+        tab2.innerHTML = tab1.innerHTML;
+
+        function Marquee() {
+            if (tab2.offsetWidth - tab.scrollLeft <= 0)
+                tab.scrollLeft -= tab1.offsetWidth
+            else {
+                tab.scrollLeft++;
+            }
+        }
+
+        function showToast() {
+            $('#toast').css('display', 'block');
+            setTimeout(function() {
+                $('#toast').css('display', 'none');
+            }, 2000);
+        }
+        var MyMar = setInterval(Marquee, speed);
+    </script>
+</body>
+
+</html>

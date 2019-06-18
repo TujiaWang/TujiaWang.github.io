@@ -1,0 +1,68 @@
+<p>#Benner-Effect 轩枫阁banner效果<br>基于CSS3实现的banner特效 - 轩枫阁</p>
+<p>##功能</p>
+<ul>
+<li><p>支持配置图片及链接</p>
+</li>
+<li><p>支持事件回调等</p>
+</li>
+<li><p>仅支持高级浏览器</p>
+</li>
+<li><p>支持5种切换效果：爆炸、翻转、翻页、扭曲、立方体</p>
+<ul>
+<li>boomEffect（爆炸）</li>
+<li>turnEffect（翻转）</li>
+<li>pageEffect（翻页）</li>
+<li>skewEffect（扭曲）</li>
+<li>cubeEffect（立方体）</li>
+</ul>
+</li>
+</ul>
+<p>##使用<br>构建：基于<a href="https://weflow.io/">WeFlow</a></p>
+<p>查看Demo：<a href="http://www.xuanfengge.com/demo/201610/banner-effect/html/index.html">http://www.xuanfengge.com/demo/201610/banner-effect/html/index.html</a></p>
+<p>查看Demo代码：dist目录</p>
+<p>引入JS文件：dist/banner-effect.js</p>
+<p>##配置</p>
+<pre><code>banner: &apos;#banner_img&apos;,       // banner dom（不包含子元素）
+index: 0,           // 设定初始化时banner的索引
+autoplay: 3000,     // 自动切换的时间间隔（单位ms），不设定该参数banner不会自动切换
+width: 1200,        // banner宽度
+height: 300,        // banner高度
+
+// 图片相关
+images: [{
+    url: &apos;../img/banner/1.jpg&apos;,
+    link: &apos;http://www.xuanfengge.com&apos;
+}, {
+    url: &apos;../img/banner/2.jpg&apos;,
+    link: &apos;javascript:;&apos;
+}, {
+    url: &apos;../img/banner/3.jpg&apos;,
+    link: &apos;javascript:;&apos;
+}],         // 图片url列表
+preloadImages: true,// 预加载所有图片
+
+// 分页及控制
+pagination: &apos;.js_banner_nav&apos;,     // 分页dom
+paginationClick: true,  // 分页是否可点击
+prevButton: &apos;.js_banner_prev&apos;,     // 下一张dom
+nextButton: &apos;.js_banner_next&apos;,     // 上一张dom
+
+// 回调函数
+onInit: function(){
+    console.log(&apos;init&apos;);
+},     // 初始化后执行
+onClick: function(event, index){
+    console.log(&apos;onClick: &apos; + index);
+},    // 点击banner后执行
+onBannerChange: function(){
+    console.log(&apos;onBannerChange&apos;);
+},  // banner切换后执行
+
+Effects: &apos;boomEffect&apos;
+// Effects: {
+//     &apos;prev&apos;: &apos;turnEffect&apos;,
+//     &apos;next&apos;: &apos;boomEffect&apos;,
+//     &apos;navi&apos;: &apos;pageEffect&apos;
+// },        // 切换效果
+});</code></pre><h2 id="参与贡献"><a href="#参与贡献" class="headerlink" title="参与贡献"></a>参与贡献</h2><p>如果有 <code>Bug反馈</code> 或 <code>功能建议</code>，请创建 <a href="https://github.com/xuanfeng/banner-effect/issues">Issue</a> 或发送 <a href="https://github.com/xuanfeng/banner-effect/pulls">Pull Request</a>，感谢你的参与和贡献。</p>
+<p><a href="http://www.xuanfengge.com/">轩枫阁</a></p>

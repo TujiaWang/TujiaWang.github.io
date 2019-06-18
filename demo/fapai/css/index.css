@@ -1,0 +1,691 @@
+@charset "utf-8";
+*,
+a:active {
+    outline: 0
+}
+
+body,
+input {
+    width: 100%
+}
+
+.placeholder,
+button,
+html,
+input,
+textarea {
+    font-family: 'Helvetica Neue', Helvetica, Hiragino Sans GB, 'Microsoft Yahei', STHeiTi, Arial, sans-serif
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased
+}
+
+body {
+    line-height: 1;
+    overflow-x: hidden;
+    max-width: 640px;
+    margin: 0 auto;
+    color: #333;
+    background-color: #943518;
+    -webkit-overflow-scrolling: touch;
+    -webkit-touch-callout: none
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block
+}
+
+a {
+    text-decoration: none;
+    color: inherit
+}
+
+b,
+strong {
+    font-weight: 700
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0
+}
+
+button,
+input,
+textarea {
+    font-size: .12rem;
+    margin: 0;
+    padding: 0;
+    border: 0
+}
+
+textarea {
+    resize: none
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse
+}
+
+td,
+th {
+    padding: 0
+}
+
+blockquote,
+figure,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0
+}
+
+dd,
+dl,
+li,
+ol,
+ul {
+    margin: 0;
+    padding: 0
+}
+
+li,
+ol,
+ul {
+    list-style: none
+}
+
+input {
+    height: .34rem;
+    padding: 0 .1rem;
+    text-align: left;
+    border: 1px solid #ddd;
+    border-radius: .04rem
+}
+
+#needCredits,
+#prize-list .prize-name,
+.apple {
+    text-align: center;
+    color: #fff
+}
+
+body {
+    font-size: .1rem
+}
+
+#db-content {
+    display: none;
+    width: 3.2rem;
+    height: 5.1456rem;
+    background-image: url(../images/yf2xi21pc5.png);
+    background-size: 100% 100%;
+}
+
+#db-content .banner {
+    position: relative;
+    height: 1.31rem
+}
+
+#db-content .banner .record,
+#db-content .banner .rule-btn {
+    position: absolute;
+    background-size: 100% 100%;
+    display: inline-block
+}
+
+#db-content .banner .record {
+    top: 0;
+    right: 0;
+    width: .555rem;
+    height: .555rem
+}
+
+#db-content .banner .rule-btn {
+    top: .03rem;
+    left: .03rem;
+    width: .46rem;
+    height: .17rem
+}
+
+#db-content .poker-table {
+    position: relative;
+    height: 2.75rem
+}
+
+#db-content .poker-table .dealer {
+    position: absolute;
+    top: -.7rem;
+    left: 50%;
+    width: 1.2rem;
+    -webkit-transform: translate(-49%, 0);
+    transform: translate(-49%, 0)
+}
+
+#db-content .poker-table .card-wrapper {
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 2.3rem
+}
+
+#db-content .poker-table .card-wrapper .card {
+    position: absolute;
+    display: inline-block;
+    width: .77rem;
+    height: 1.0415rem;
+    transition: all .3s;
+    background-size: 100% 100%
+}
+
+#db-content .poker-table .card-wrapper .card.active {
+    z-index: 100;
+    top: .5rem;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0) scale(1.5, 1.5);
+    transform: translate(-50%, 0) scale(1.5, 1.5)
+}
+
+#db-content .poker-table .card-wrapper .card.active.turn {
+    -webkit-animation: cardTurn 1.4s linear 1;
+    animation: cardTurn 1.4s linear 1
+}
+
+#db-content .poker-table .card-wrapper .card.shake {
+    -webkit-animation: cardShake .8s linear infinite;
+    animation: cardShake .8s linear infinite
+}
+
+#db-content .poker-table .card-wrapper .card.init {
+    top: 1.2415rem!important;
+    left: 68%!important;
+    -webkit-transform: translate(0, 0)!important;
+    transform: translate(0, 0)!important
+}
+
+#needCredits {
+    line-height: 1.5;
+    position: absolute;
+    top: .32rem;
+    right: 0;
+    left: 0;
+    display: inline-block;
+    width: 1.2rem;
+    margin: 0 auto;
+    padding: 0 .1rem
+}
+
+.card {
+    background-image: url(../images/card.png);
+}
+
+.card.light {
+    background-image: url('../images/card_active.png');
+}
+
+.record {
+    background-image: url(../images/record.png) !important;
+}
+
+@-webkit-keyframes cardShake {
+    100%,
+    30% {
+        -webkit-transform: translate(-50%, 0) scale(1.5, 1.5) rotate(0);
+        transform: translate(-50%, 0) scale(1.5, 1.5) rotate(0)
+    }
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translate(-50%, 0) scale(1.5, 1.5) rotate(10deg);
+        transform: translate(-50%, 0) scale(1.5, 1.5) rotate(10deg)
+    }
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translate(-50%, 0) scale(1.5, 1.5) rotate(-10deg);
+        transform: translate(-50%, 0) scale(1.5, 1.5) rotate(-10deg)
+    }
+}
+
+@keyframes cardShake {
+    100%,
+    30% {
+        -webkit-transform: translate(-50%, 0) scale(1.5, 1.5) rotate(0);
+        transform: translate(-50%, 0) scale(1.5, 1.5) rotate(0)
+    }
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translate(-50%, 0) scale(1.5, 1.5) rotate(10deg);
+        transform: translate(-50%, 0) scale(1.5, 1.5) rotate(10deg)
+    }
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translate(-50%, 0) scale(1.5, 1.5) rotate(-10deg);
+        transform: translate(-50%, 0) scale(1.5, 1.5) rotate(-10deg)
+    }
+}
+
+@-webkit-keyframes cardTurn {
+    from {
+        -webkit-transform: translate(-50%, 0) scale(1.5, 1.5);
+        transform: translate(-50%, 0) scale(1.5, 1.5)
+    }
+    to {
+        -webkit-transform: translate(-50%, 0) scale(1.5, 1.5) rotateY(-180deg);
+        transform: translate(-50%, 0) scale(1.5, 1.5) rotateY(-180deg)
+    }
+}
+
+@keyframes cardTurn {
+    from {
+        -webkit-transform: translate(-50%, 0) scale(1.5, 1.5);
+        transform: translate(-50%, 0) scale(1.5, 1.5)
+    }
+    to {
+        -webkit-transform: translate(-50%, 0) scale(1.5, 1.5) rotateY(-180deg);
+        transform: translate(-50%, 0) scale(1.5, 1.5) rotateY(-180deg)
+    }
+}
+
+.six .card:nth-child(1) {
+    z-index: 7;
+    top: .1rem;
+    left: 8%
+}
+
+.six .card:nth-child(2) {
+    z-index: 6;
+    top: .1rem;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0)
+}
+
+.six .card:nth-child(3) {
+    z-index: 5;
+    top: .1rem;
+    left: 68%
+}
+
+.six .card:nth-child(4) {
+    z-index: 4;
+    top: 1.1915rem;
+    left: 8%
+}
+
+.six .card:nth-child(5) {
+    z-index: 3;
+    top: 1.1915rem;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0)
+}
+
+.six .card:nth-child(6) {
+    z-index: 2;
+    top: 1.1915rem;
+    left: 68%
+}
+
+#db-content .prize-list {
+    box-sizing: border-box;
+    height: .83rem;
+    margin-top: .09rem;
+    padding-left: 0.05rem;
+}
+
+#prize-list .iScrollLoneScrollbar,
+.card-cover {
+    display: none
+}
+
+#prize-list {
+    position: relative;
+    overflow: hidden;
+    -ms-touch-action: none;
+    touch-action: none
+}
+
+#prizes-wrapper {
+    width: 3.9rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
+}
+
+#prize-list .prize-img {
+    width: .45rem
+}
+
+#prize-list .prize-name {
+    font-size: .1rem;
+    line-height: .12rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+#prize-list .prize-img-box {
+    padding: .05rem
+}
+
+#prize-list .prize-item {
+    width: .7rem;
+    padding-top: .075rem;
+    text-align: center;
+    display: inline-block;
+    margin-right: 0.05rem;
+}
+
+.apple {
+    line-height: .19rem;
+    color: #fff !important;
+    background-color: #943518 !important;
+}
+
+.card-cover {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .85)
+}
+
+.buoyImg {
+    position: absolute;
+    right: 0rem;
+    top: 2.9rem;
+    width: .655rem;
+    height: 1.5rem;
+    z-index: 50;
+    background: url(../images/buoy_02.png) no-repeat;
+    background-size: cover;
+    animation: img 2.8s steps(10, end) infinite;
+    -webkit-animation: img 2.8s steps(13, end) infinite;
+}
+
+@keyframes img {
+    0% {
+        background-position-y: 0;
+    }
+    100% {
+        background-position-y: 100%;
+    }
+}
+
+@-webkit-keyframes img {
+    0% {
+        background-position-y: 0;
+    }
+    100% {
+        background-position-y: 100%;
+    }
+}
+
+.prize-detail-modal.show {
+    top: 0;
+    opacity: 1
+}
+
+.prize-detail-modal {
+    position: fixed;
+    z-index: 100;
+    top: -100%;
+    right: 0;
+    left: 0;
+    display: none;
+    width: 3.2rem;
+    height: 100%;
+    margin: 0 auto;
+    transition: all .3s ease-in-out;
+    opacity: 0;
+    display: none;
+}
+
+.prize-detail-dialog {
+    position: relative;
+    height: 4rem;
+    padding-bottom: .3rem;
+    border-radius: 0 0 .05rem .05rem;
+    background-color: #fff;
+    box-shadow: .0125rem .02165rem .05rem 0 rgba(0, 0, 0, .3)
+}
+
+.prize-detail-slidebox {
+    position: relative;
+    bottom: 0;
+    display: none;
+    overflow: hidden;
+    height: 100%
+}
+
+.prize-detail-content {
+    line-height: 1.428571429;
+    margin-top: 0
+}
+
+.prize-detail-content>img,
+.prize-detail-description img {
+    width: 100%
+}
+
+.prize-detail-info {
+    padding: .075rem 0
+}
+
+.prize-detail-info h3 {
+    font-size: .16rem;
+    font-weight: 400;
+    padding: 0 .1rem
+}
+
+.prize-detail-info p {
+    font-size: .12rem;
+    padding: 0 .1rem .08rem;
+    color: #999;
+    border-bottom: solid #ddd .005rem
+}
+
+.prize-detail-description {
+    font-size: .12rem;
+    padding: 0 .1rem;
+    color: #666
+}
+
+.prize-detail-description p {
+    margin-bottom: .08rem
+}
+
+.prize-detail-description h4 {
+    font-size: .14rem;
+    margin-bottom: .08rem;
+    color: #333
+}
+
+.prize-detail-description a {
+    text-decoration: underline;
+    color: #ec3d00
+}
+
+.prize-detail-description ol {
+    padding-left: .2rem
+}
+
+.prize-detail-description ol li {
+    line-height: 1.428571429;
+    position: relative;
+    margin-bottom: .08rem;
+    list-style-position: outside;
+    list-style-type: decimal
+}
+
+.prize-detail-description ul {
+    padding-left: .15rem
+}
+
+.prize-detail-description ul li {
+    line-height: 1.428571429;
+    position: relative;
+    margin-bottom: .08rem;
+    list-style: outside
+}
+
+.iScrollVerticalScrollbar {
+    width: .035rem!important
+}
+
+.prize-detail-slideup {
+    position: absolute;
+    right: 0;
+    bottom: -.26rem;
+    left: 0;
+    display: inline-block;
+    width: .48rem;
+    height: .52rem;
+    margin: 0 auto;
+    background-image: url(../images/slideup.png);
+    background-repeat: no-repeat;
+    background-size: .48rem .52rem
+}
+
+.prize-detail-loading {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    text-align: center;
+    background-color: #fff
+}
+
+.prize-detail-loading i {
+    display: inline-block;
+    width: .28rem;
+    height: .28rem;
+    background-image: url(../images/loading.gif);
+    background-repeat: no-repeat;
+    background-size: 100% 100%
+}
+
+.prize-detail-loading p {
+    font-size: .14rem;
+    margin-top: .1rem
+}
+
+.filter-blur {
+    -webkit-filter: blur(5px);
+    filter: blur(5px)
+}
+
+.recommend-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .75)
+}
+
+.recommend-modal .recommend-modal-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+.recommend-modal .close {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -.33rem;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: .2rem;
+    height: .2rem;
+    background: url(../images/close.png) center no-repeat;
+    background-size: 70%
+}
+
+.recommend-modal .recommend-body1 {
+    padding-top: .55rem;
+    width: 3.2rem;
+    height: 3.82rem;
+    background: url(../images/bg1.png) no-repeat;
+    background-size: 100%
+}
+
+.recommend-modal .fuli {
+    position: absolute;
+    width: .5rem;
+    height: .495rem;
+    top: -.05rem;
+    right: .1rem;
+    background: url(../images/fuli.png) no-repeat;
+    background-size: 100%;
+    display: none
+}
+
+.recommend-modal .recommend-li {
+    display: block;
+    position: relative;
+    width: 2.92rem;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    padding: .05rem;
+    margin-top: .185rem
+}
+
+.recommend-modal .recommend-li img {
+    border-radius: .06rem
+}
+
+.recommend-modal .recommend-btn {
+    display: block;
+    position: absolute;
+    width: 1.325rem;
+    height: .47rem;
+    background: url(../images/btn.png) no-repeat;
+    background-size: 100%;
+    bottom: -.22rem;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+}

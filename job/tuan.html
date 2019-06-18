@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link href="favicon.ico" type="image/x-icon" rel="shortcut icon">
+	<title>王光稀-作品展示</title>
+	<link rel="stylesheet" href="css/jquery.fullPage.css">
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery1124.fullPage.min.js"></script>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		#myMenu {
+			position: fixed;
+			top: 0;
+			overflow: hidden;
+			padding-left: 35%;
+			background-color: rgb(33, 35, 37);
+			width: 100%;
+		}
+		#myMenu li {
+			float: left;
+			margin: 10px;
+			padding-bottom: 5px;
+		}
+		#myMenu li.active {
+			border-bottom: 2px solid #42b8f1;
+		}
+		#myMenu li a{
+			color: #fff;
+			text-decoration: none;
+			display: block;
+		}
+		img {
+			width: 300px;
+		}
+		.slide {
+			overflow: hidden;
+			/*text-align: center;*/
+			padding: 0 150px;
+		}
+		.slide img{
+			float: left;
+			margin: 0 10px;
+		}
+		.section{
+			text-align: center;
+		}
+		.section img{
+			/*float: left;*/
+			height: 590px;
+		}
+	</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<body>
+	<div id="fullpage">
+		<div class="section">
+			<img src="images/eq/fang/f1.png" alt style="height:590px;">
+			<img src="images/eq/fang/f2.png" alt style="height:590px;">
+			<img src="images/eq/fang/f3.png" alt style="height:590px;">
+			<img src="images/eq/fang/f4.png" alt style="height:590px;">
+		</div>
+		<div class="section">
+			<img src="images/eq/tuan/shop1.png" alt>
+			<img src="images/eq/tuan/shop2.png" alt>
+			<img src="images/eq//tuan/shop3.png" alt>
+		</div>
+		<div class="section">
+			<img src="images/eq/han/h1.jpg" alt style="height:590px;">
+			<img src="images/eq/han/h2.png" alt>
+			<img src="images/eq/han/h3.png" alt>
+		</div>
+		<div class="section">
+			<img src="images/eq/han/m1.png" alt style="height:590px;">
+	        <img src="images/eq/han/m2.png" alt>
+	        <img src="images/eq/han/m3.png" alt>
+	        <img src="images/eq/han/m4.png" alt style="height:590px;">
+		</div>
+	</div>
+	<ul id="myMenu">
+	    <li data-menuanchor="firstPage" class="active"><a href="#firstPage">房嫂app</a></li>
+	    <li data-menuanchor="secondPage"><a href="#secondPage">团购网</a></li>
+	    <li data-menuanchor="thirdPage"><a href="#thirdPage">韩都衣舍pc</a></li>
+	    <li data-menuanchor="thourPage"><a href="#thourPage">韩都衣舍webapp</a></li>
+	</ul>
+
+	<script>
+		$('#fullpage').fullpage({
+			// 是否显示项目导航
+			navigation:true,
+			// 项目导航的位置，可选 left 或 right
+			navigationPosition:'right',
+			// 是否显示当前状态的导航提示信息
+			showActiveTooltip:true,
+			// 每一页的背景色
+			sectionsColor: ['#4bbf00', '#4BBFC3', '#7BAABE', '#7BAABE'],
+
+			// 用于显示菜单和menu配合
+			anchors: ['firstPage', 'secondPage', 'thirdPage', 'thourPage'],
+    		menu: '#myMenu',
+    		// 懒加载默认开启，只需将图片的src改为data-src即可
+    		lazyLoading: true,
+
+    		// 左右滑块的项目导航的位置，可选 top 或 bottom
+    		slidesNavPosition:'bottom',
+
+    		// 设置每一个section顶部和底部的padding，默认都为0.一般如果我们需要设置一个固定在顶部或者底部的菜单、导航、元素等，可以使用这两个配置项
+    		paddingTop:'50px'
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <title>Tetris5</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link type="text/css" rel="stylesheet" href="css/com.css">
+    <link type="text/css" rel="stylesheet" href="css/game.css">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body>
+    <div id="cubeFrame">
+        <!-- 主视图 -->
+        <div id="cubeReel">
+            <!-- 滚动块 -->
+            <div id="cubeHelp">
+                <!-- 帮助块 -->
+                <h1>帮助</h1>
+                <div id="helpContent">
+                    <h4>操作:</h4>
+                    <p>使用 <strong>上</strong>, <strong>下</strong>, <strong>左</strong> 和 <strong>右</strong> 键或者 <strong>W</strong>, <strong>A</strong>, <strong>S</strong> 和 <strong>D</strong> 键控制。 <strong>X</strong>键快速下滑到底部。<br> 或者使用点击 <strong>上</strong>,
+                        <strong>左</strong>, <strong>右</strong> 和 <strong>下</strong> 来控制。<br>如果你认为音乐是嘈杂的，点击静音按钮。</p>
+                    <br>
+                    <h4>One more thing:</h4>
+                    <p>尽情享受吧!</p>
+                </div>
+                <div id="helpControl">
+                    <div id="helpInfo">
+                        iOS用户使用两个手指向下滚动或向上滚动。
+                    </div>
+                    <button class="btnMenu">返回</button>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <!-- 帮助块 -->
+            <div id="cubeRank">
+                <!-- 排名块 -->
+                <h1>排行榜</h1>
+                <div id="rankNav" class="right">
+                </div>
+                <div id="rankList">
+                    <ul>
+                        <li id="list1">
+                            <div class="name">Name</div>
+                            <div class="result">S: xxxx | L: xx | T: xxxxx s</div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="rankControl">
+                    <div id="rankInfo">
+                        <!-- iOS users use two fingers to scroll down or up. -->
+                    </div>
+                    <button class="btnMenu">返回</button>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <!-- 排名块 -->
+            <div id="cubeMenu">
+                <!-- 菜单块 -->
+                <header>
+                    <h1>Tetris</h1>
+                </header>
+                <div id="menuLoading">
+                    Loading...
+                </div>
+                <div id="menuControl">
+                    <button id="btnRed" class="btnStart"></button>
+                    <button id="btnGreen" class="btnPause"></button>
+                    <button id="btnYellow" class="btnRank"></button>
+                    <button class="btnHelp"></button>
+                    <button class="btnMute"></button>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <!-- 菜单块 -->
+            <div id="cubeGame">
+                <!-- 游戏块 -->
+                <div class="floatLeft">
+                    <canvas id="canvasGame" width="180" height="360">
+					</canvas>
+                </div>
+                <!--<div class="floatLeft">
+					<div id="divGame"></div>
+				</div>-->
+                <div id="gameInfo" class="floatLeft center">
+                    <div id="gameNextLabel" class="gameLabel">
+                        下一个图形:
+                    </div>
+                    <canvas id="canvasNext" width="72" height="36">
+					</canvas>
+                    <div id="gameScoreLabel" class="gameLabel">
+                        得分:
+                    </div>
+                    <div id="gameScore" class="gameText">
+                    </div>
+                    <div id="gameLevelLabel" class="gameLabel">
+                        等级:
+                    </div>
+                    <div id="gameLevel" class="gameText">
+                    </div>
+                    <div id="gameTimeLabel" class="gameLabel">
+                        倒计时:
+                    </div>
+                    <div id="gameTime" class="gameText">
+                    </div>
+                    <div id="gameControl">
+                        <button class="btnPause"></button>
+                        <button class="btnMute"></button>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <!-- 游戏块 -->
+            <div class="clear"></div>
+        </div>
+        <!-- 滚动块 -->
+    </div>
+    <!-- 主视图 -->
+    <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.color.js"></script>
+    <script type="text/javascript" src="js/modernizr-1.6.min.js"></script>
+    <script type="text/javascript" src="js/Block.js"></script>
+    <script type="text/javascript" src="js/Game.js"></script>
+    <script type="text/javascript" src="js/GameUI.js"></script>
+    <script type="text/javascript">
+        //<![CDATA[
+        $(function() {
+            var game = GameUI;
+            game.setAni(true);
+            game.init();
+        });
+        //]]>
+    </script>
+</body>
+
+</html>

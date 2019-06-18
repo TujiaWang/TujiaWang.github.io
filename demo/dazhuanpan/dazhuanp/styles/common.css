@@ -1,0 +1,27 @@
+html,body{
+    width: 100%;
+    overflow-x: hidden;
+}
+body{
+    font-size: .22rem;
+}
+.container{
+    margin: 0 .2rem;
+}
+.section-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: .02rem solid #eeeeee;
+    padding: .20rem 0 .23rem;
+}
+.section-title p{
+    font-size: .30rem;
+    color: #4c4c4c;
+}
+.section-title a{
+    font-size: .26rem;
+    color: #aaaeb3;
+    text-decoration: none;
+}

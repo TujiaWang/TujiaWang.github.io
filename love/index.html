@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>to Qing</title>
+
+    <link href="css/default.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body>
+    <div id="mainDiv">
+        <div id="content">
+            <div id="loveHeart">
+                <canvas id="garden"></canvas>
+                <div id="words">
+                    <div id="messages">
+                        Qing,This is the time we know each other.
+                        <div id="elapseClock"></div>
+                    </div>
+                    <div id="loveu">
+                        &nbsp;<br>
+                        <div class="signature">- Mr.Wang</div>
+                    </div>
+                </div>
+            </div>
+            <div id="code">
+                <span class="comments">/**</span><br>
+                <span class="space"></span><span class="comments">*  2019—05-26 21:05</span><br>
+                <span class="space"></span><span class="comments">*/</span><br> People.Boy = <span class="keyword">Mr</span> WANG;<br> People.Girl = <span class="keyword">Mrs</span> Zhang;<br>
+                While(true){<br>People.Boy love People.Girl<br>
+                <span class="comments">// AS time goes on.</span><br> I hope we can enjoy life together.<br>}<span class="space"></span>
+            </div>
+
+        </div>
+    </div>
+
+    <canvas id="heart"></canvas>
+    <script type="text/javascript">
+        var offsetX = $("#loveHeart").width() / 2;
+        var offsetY = $("#loveHeart").height() / 2 - 55;
+        var together = new Date('2019/05/26 21:05');
+        if (!document.createElement('canvas').getContext) {
+            var msg = document.createElement("div");
+            msg.id = "errorMsg";
+            msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+            document.body.appendChild(msg);
+            $("#code").css("display", "none")
+            document.execCommand("stop");
+        } else {
+            setTimeout(function() {
+                startHeartAnimation();
+            }, 5000);
+            timeElapse(together);
+            setInterval(function() {
+                timeElapse(together);
+            }, 500);
+            adjustCodePosition();
+            $("#code").typewriter();
+        }
+    </script>
+</body>
+
+</html>
